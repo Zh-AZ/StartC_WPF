@@ -6,17 +6,42 @@
         xmlns:local="clr-namespace:StartC_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Button Grid.Column="1" Width="200" Height="50" Content="Button" FontSize="20" HorizontalAlignment="Center" Margin="0,294,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <ListBox x:Name="ListBox" FontSize="20"/>
-        <TextBox x:Name="txtName"
-            Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Width="380" Height="207"/>
+    <Grid Background="#FFEBCD" ShowGridLines="True">
+        <Frame x:Name="MyFrame"
+            NavigationUIVisibility="Hidden" Navigated="MyFrame_Navigated_Label"/>
+        <Button x:Name="LabelButton" FontSize="20" HorizontalAlignment="Left" 
+                Margin="182,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.498,0.488" Height="50" Width="167" Click="Button_Click_Label"
+                Background="LightYellow">
+            <StackPanel Width="167" Height="50">
+                <Polygon x:Name="Page1" Fill="LightPink" Points="0,-28 1,75 168,25" Height="48"
+                         MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter"/>
+            </StackPanel>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="ListBoxButton" Width="167" Height="50" FontSize="20" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" 
+                Click="Button_Click_ListBox" RenderTransformOrigin="0.498,0.488" Background="LightYellow">
+            <StackPanel Width="167" Height="50">
+                <Polygon x:Name="Page2" Fill="LightPink" Points="170,-30 -5,25 170,75" Height="48"
+                         MouseLeave="ListBox_MouseLeave" MouseEnter="ListBox_MouseEnter"/>
+            </StackPanel>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Close" FontWeight="Bold" FontSize="20" Background="LavenderBlush" Click="Click_Close" Foreground="LightPink"
+                HorizontalAlignment="Left" Margin="616,0,0,0" VerticalAlignment="Top" Height="50" Width="163">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

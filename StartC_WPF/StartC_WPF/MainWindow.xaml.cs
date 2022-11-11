@@ -20,35 +20,55 @@ namespace StartC_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        ListBox p1;
+        Label p2;
         public MainWindow()
         {
             InitializeComponent();
+            p1 = new ListBox();
+            p2 = new Label();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Click_Close(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtName.Text))
-            {
-                MessageBox.Show("Text is empty",
-                                this.Title,
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Information);
-            }
-            else
-            {
-                string[] inputed = txtName.Text.Split(' ');
-                List<string> output = new List<string>();
-                output.AddRange(inputed);
-                ListBox.Items.Add(output);
-            }
-            
-            //else
-            //{
-            //    MessageBox.Show($"Hello, {txtName.Text}!",
-            //                    this.Title,
-            //                    MessageBoxButton.YesNo,
-            //                    MessageBoxImage.Information);
-            //}
+            this.Close();
+        }
+        
+        private void Button_Click_Label(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Content = p2;
+        }
+        
+        private void Button_Click_ListBox(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Content = p1;
+        }
+        private void MyFrame_Navigated_ListBox(object sender, NavigationEventArgs e)
+        {
+        }
+
+        private void MyFrame_Navigated_Label(object sender, NavigationEventArgs e)
+        {
+        }
+
+        private void ListBox_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Page2.Fill = Brushes.LightSkyBlue;
+        }
+
+        private void ListBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Page2.Fill = Brushes.LightPink;
+        }
+        
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Page1.Fill = Brushes.LightSkyBlue;
+        }
+
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Page1.Fill = Brushes.LightPink;
         }
     }
 }
